@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" sizes="180x180" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details | Prabhat & Sarvam Kuteeram</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-p: #0f172a; --accent: #0ea5e9; --gold: #facc15;
+            --bg-light: #f8fafc; --text-dark: #0f172a; --text-muted: #475569;
+            --radius: 12px; --shadow-hover: 0 10px 25px rgba(0,0,0,0.08);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            color: var(--text-dark); 
+            background-color: #f4f7fa;
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px), radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+            line-height: 1.6; 
+            overflow-x: hidden; 
+        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; position: relative; z-index: 2; }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0284c7; }
+
+        .colorful-bg {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f9faff 0%, #eef5ff 30%, #fff3f9 70%, #fffcf0 100%);
+            z-index: 1;
+        }
+        .side-deco {
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+            border-radius: 100px;
+            opacity: 0.2;
+            animation: float-side 14s ease-in-out infinite alternate;
+        }
+        .deco-left-large { width: 600px; height: 600px; background: var(--accent); left: -300px; top: 10%; transform: rotate(25deg); animation-delay: -2s; }
+        .deco-right-large { width: 500px; height: 700px; background: var(--gold); right: -250px; top: 20%; transform: rotate(-20deg); animation-delay: -5s; }
+        .deco-left-small { width: 400px; height: 400px; background: #db2777; left: -200px; bottom: 10%; transform: rotate(45deg); animation-delay: -8s; }
+        .deco-right-small { width: 450px; height: 450px; background: #7c3aed; right: -200px; top: 60%; transform: rotate(-30deg); animation-delay: -3s; }
+        @keyframes float-side {
+            0% { transform: translateY(0px) rotate(25deg) scale(1); }
+            100% { transform: translateY(40px) rotate(30deg) scale(1.05); }
+        }
+        .deco-right-large { animation-name: float-side-right; }
+        @keyframes float-side-right {
+            0% { transform: translateY(0px) rotate(-20deg) scale(1); }
+            100% { transform: translateY(40px) rotate(-25deg) scale(1.05); }
+        }
+        .deco-right-small { animation-name: float-side-right-small; }
+        @keyframes float-side-right-small {
+            0% { transform: translateY(0px) rotate(-30deg) scale(1); }
+            100% { transform: translateY(-30px) rotate(-35deg) scale(1.05); }
+        }
+
+        header { background: white; padding: 12px 0; position: sticky; top: 0; z-index: 100; border-bottom: 2px solid var(--gold); }
+        .header-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .brand-collab { display: flex; align-items: center; gap: 15px; }
+        .brand-collab .line { width: 2px; height: 50px; background: #e2e8f0; }
+        .brand-p, .brand-s { display: flex; align-items: center; justify-content: center; }
+        .brand-p img, .brand-s img { max-height: 100px; width: auto; border-radius: 4px; cursor: pointer; transition: var(--transition); animation: logo-float 4s ease-in-out infinite alternate; }
+        .brand-p img:hover, .brand-s img:hover { transform: scale(1.05) !important; opacity: 0.9; animation-play-state: paused; }
+        @keyframes logo-float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-6px); }
+        }
+        nav { display: flex; gap: 25px; align-items: center; flex-wrap: wrap; }
+        nav a { font-weight: 500; font-size: 0.95rem; color: var(--text-dark); transition: var(--transition); }
+        nav a:hover { color: var(--accent); }
+        .nav-btn { background: var(--gold); color: var(--primary-p); padding: 8px 20px; border-radius: 50px; font-weight: 700 !important; }
+
+        .detail-card { background: white; padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow-hover); margin-top: 20px; }
+        .breadcrumb { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
+        .breadcrumb a { color: var(--accent); font-weight: 600; transition: var(--transition); }
+        .breadcrumb a:hover { text-decoration: underline; }
+        
+        .detail-card h1 { font-size: 2.8rem; font-weight: 900; color: var(--primary-p); margin-bottom: 10px; }
+        .detail-card .category { display: inline-block; background: #e0f2fe; color: var(--accent); padding: 4px 12px; border-radius: 50px; font-weight: 600; font-size: 0.85rem; margin-bottom: 15px; }
+        .detail-card .duration { display: inline-block; background: #f1f5f9; padding: 4px 12px; border-radius: 50px; font-weight: 600; font-size: 0.85rem; margin-left: 10px; }
+        .detail-card .desc { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 25px; line-height: 1.8; }
+        
+        .detail-card h3 { font-weight: 700; font-size: 1.3rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .syllabus-list { background: var(--bg-light); padding: 20px; border-radius: var(--radius); margin-bottom: 30px; }
+        .syllabus-list li { display: flex; align-items: flex-start; gap: 12px; padding: 8px 0; border-bottom: 1px solid #e2e8f0; }
+        .syllabus-list li:last-child { border-bottom: none; }
+        .syllabus-list li i { color: #22c55e; margin-top: 3px; }
+        
+        .wa-enroll { display: inline-flex; align-items: center; gap: 10px; background: #25d366; color: white; padding: 14px 28px; border-radius: 50px; font-weight: 600; font-size: 1.1rem; transition: var(--transition); margin-top: 20px; }
+        .wa-enroll:hover { transform: scale(1.05); box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
+
+        .animate-section { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .animate-section.is-visible { opacity: 1; transform: translateY(0); }
+        .animate-item { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .is-visible .animate-item { opacity: 1; transform: translateY(0); }
+
+        footer { background: #0f172a; color: white; padding: 60px 0 30px; border-top: 4px solid var(--gold); margin-top: 40px; position: relative; overflow: hidden; }
+        .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; max-width: 1000px; margin: 0 auto 40px; text-align: left; position: relative; z-index: 2; }
+        .footer-col h5 { font-size: 1.6rem; margin-bottom: 20px; color: var(--gold); animation: pulse-gold 3s infinite alternate; }
+        @keyframes pulse-gold { 0% { text-shadow: 0 0 0px transparent; } 100% { text-shadow: 0 0 15px rgba(250, 204, 21, 0.4); } }
+        .footer-col p { color: #94a3b8; font-size: 1.2rem; line-height: 2.2; margin-bottom: 10px; }
+        .footer-col i { margin-right: 12px; color: var(--accent); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; text-align: center; font-size: 1.1rem; color: #94a3b8; position: relative; z-index: 2; }
+
+        @media (max-width: 900px) {
+            .header-content { flex-direction: column; align-items: center; }
+            nav { justify-content: center; gap: 15px; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .brand-collab .line { height: 40px; }
+            .side-deco { display: none; }
+            .brand-p img, .brand-s img { max-height: 70px; }
+            .detail-card h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="brand-collab">
+                <div class="brand-p">
+                    <a href="index.html"><img src="prbhath-logo.png" alt="Prabhat & Gnanadhathri" onerror="this.style.display='none'"></a>
+                </div>
+                <div class="line"></div>
+                <div class="brand-s">
+                    <a href="index.html"><img src="sarvam-logo.jpeg" alt="Sarvam Kuteeram" class="sarvam-logo" onerror="this.style.display='none'"></a>
+                </div>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="prabhat.html">Prabhat</a>
+                <a href="sarvam.html">Sarvam</a>
+                <a href="courses.html">Courses</a>
+                <a href="courses.html" class="nav-btn">Enquire Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container animate-section">
+        <div class="side-deco deco-left-large"></div>
+        <div class="side-deco deco-right-large"></div>
+        <div class="side-deco deco-left-small"></div>
+        <div class="side-deco deco-right-small"></div>
+
+        <div class="detail-card animate-item" id="course-detail-container">
+            <!-- Content injected via JS -->
+        </div>
+    </div>
+
+    <footer>
+        <div class="side-deco deco-left-large" style="background: #7c3aed; opacity:0.1; left: -400px; top: 50%;"></div>
+        <div class="side-deco deco-right-large" style="background: #db2777; opacity:0.1; right: -400px; top: 20%;"></div>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h5>Prabhat & Gnanadhathri</h5>
+                    <p><i class="fas fa-map-marker-alt"></i> #72, 'Samrudhi', 1st Floor, 7th Main, Attur layout, Yelahanka, Bangalore - 560064.</p>
+                    <p><i class="fas fa-phone-alt"></i> <a href="tel:9663427037" style="color: var(--accent);">9663427037</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:prabhatinstitute26@gmail.com" style="color: var(--accent);">prabhatinstitute26@gmail.com</a></p>
+                    <p><i class="fas fa-clock"></i> 9:00 AM - 8:00 PM</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Sarvam Kuteeram</h5>
+                    <p><i class="fas fa-map-marker-alt"></i> No.228/A 407SFS colony, Yelahanka new town, Bangalore 560 064, Karnataka, India.</p>
+                    <p><i class="fas fa-phone-alt"></i> <a href="tel:8892036888" style="color: var(--gold);">8892036888</a></p>
+                    <p><i class="fas fa-envelope"></i> sarvam.kuteeram3379@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> 8:00 AM - 8:00 PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Prabhat & Gnanadhathri | Sarvam Kuteeram Collaboration.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        console.log("--- DEBUG INFO START ---");
+        
+        const courseData = [
+            { id: 1, title: "MS-DOS & Windows", duration: "6 Months", type: "IT", icon: "fa-desktop", desc: "Master operating systems, file management, system configurations, and troubleshooting.", syllabus: ["Introduction to DOS", "Windows 10/11 Navigation", "File & Folder Management", "Keyboard Shortcuts", "System Maintenance"] },
+            { id: 2, title: "Tally & Tally 9", duration: "2 Months", type: "Accounting", icon: "fa-file-invoice-dollar", desc: "Comprehensive accounting training covering billing, inventory, GST returns, and payroll.", syllabus: ["Company Creation", "Chart of Accounts", "Recording Transactions", "GST & TDS", "Inventory Management", "Financial Reporting"] },
+            { id: 3, title: "Networking & Hardware", duration: "2 Months", type: "IT", icon: "fa-network-wired", desc: "Learn PC assembly, OS installation, diagnostic tools, and LAN configurations.", syllabus: ["PC Assembly & Disassembly", "BIOS & OS Installation", "Diagnostic Tools", "LAN Configuration", "Troubleshooting"] },
+            { id: 4, title: "DTP (Desktop Publishing)", duration: "2 Months", type: "Design", icon: "fa-pen-fancy", desc: "Master CorelDRAW, Photoshop, and layout design to create stunning professional flyers.", syllabus: ["CorelDRAW Basics", "Photoshop Image Editing", "Layout Design", "Typography", "Printing & Prepress"] },
+            { id: 5, title: "Computer Typing", duration: "2 Months", type: "Skill", icon: "fa-keyboard", desc: "Master high-speed typing in English and Kannada. Enhance accuracy and data entry skills.", syllabus: ["Home Row Finger Placement", "Speed Building", "Kannada Keyboard", "Accuracy Drills", "Data Entry"] },
+            { id: 6, title: "Spoken English", duration: "2 Months", type: "Skill", icon: "fa-language", desc: "Build confidence in speaking English fluently for interviews and daily life.", syllabus: ["Fluency & Pronunciation", "Vocabulary Building", "Grammar in Context", "Conversational Roleplay", "Interview Skills"] },
+            { id: 7, title: "PGDCA (Diploma)", duration: "9 Months", type: "IT", icon: "fa-graduation-cap", desc: "A comprehensive diploma covering MS Office, Database, Web Design, and Programming Logic.", syllabus: ["MS Office Suite", "Database Concepts", "Web Design Basics", "Programming Logic", "Communication Skills", "Project Work"] },
+            { id: 8, title: "Abacus", duration: "4 Months", type: "Skill", icon: "fa-calculator", desc: "Boost mental arithmetic, concentration, and memory with child-friendly teaching.", syllabus: ["Basic Add & Sub", "Multiplication & Division", "Mental Calculation", "Speed Drills", "Visualization"] },
+            { id: 9, title: "Python Programming", duration: "3 Months", type: "IT", icon: "fa-code", desc: "Learn one of the most popular languages for Data Science, AI, and web automation.", syllabus: ["Variables & Data Types", "Control Flow", "Functions & Modules", "Data Structures", "File Handling", "Game/App Dev"] },
+            { id: 10, title: "Basic Electronics", duration: "3 Months", type: "IT", icon: "fa-microchip", desc: "Introduction to mechanics, sensors, and microcontrollers to build functional electronic models and circuits.", syllabus: ["Mechanics of Electronics", "Introduction to Sensors", "Microcontroller Basics", "Circuit Logic", "Live Projects"] },
+            { id: 11, title: "Vedic Maths", duration: "4 Months", type: "Skill", icon: "fa-brain", desc: "Ancient techniques to calculate complex equations instantly and improve mental agility.", syllabus: ["Sutras and Sub-Sutras", "Quick Multiplication", "Mental Division", "Square & Cube Roots", "Speed Analysis"] },
+            { id: 12, title: "Web Designer", duration: "3 Months", type: "IT", icon: "fa-globe", desc: "Learn HTML, CSS, JavaScript, and responsive design to build stunning websites.", syllabus: ["HTML5 & CSS3 Basics", "JavaScript & jQuery", "Responsive Design", "UI/UX Principles", "Portfolio Projects"] },
+            { id: 13, title: "Financial Literacy", duration: "1 Month", type: "Skill", icon: "fa-coins", desc: "Understand personal finance, savings, investments, and budgeting for informed decisions.", syllabus: ["Understanding Budgets", "Savings Strategies", "Basics of Investments", "Credit & Debit Management", "Financial Planning"] },
+            { id: 14, title: "Personality Development", duration: "1 Month", type: "Skill", icon: "fa-user-graduate", desc: "Develop confidence, communication skills, and a winning personality for professional life.", syllabus: ["Self-Confidence Building", "Body Language & Etiquette", "Effective Communication", "Goal Setting", "Stress Management"] },
+            { id: 15, title: "Interview Skills", duration: "1 Month", type: "Skill", icon: "fa-handshake", desc: "Master interview techniques, tricky questions, and leave a lasting impression on recruiters.", syllabus: ["Resume Writing", "Mock Interview Sessions", "Tricky Question Strategies", "Professional Dressing & Grooming", "Follow-up Techniques"] },
+            { id: 16, title: "Phonics", duration: "2 Months", type: "Skill", icon: "fa-language", desc: "Learn to read and pronounce English correctly. Master sounds, blending, spelling rules, and reading fluency.", syllabus: ["Introduction to Letter Sounds", "Blending and Segmenting Words", "Vowel and Consonant Rules", "Reading Comprehension & Spelling", "Pronunciation and Enunciation"] },
+            { id: 17, title: "Soft Skills Package", duration: "4 Months", type: "Skill", icon: "fa-users", desc: "A complete career-boosting package bundling Spoken English, Personality Development, Interview Skills, and Financial Literacy into one comprehensive course.", syllabus: ["Master Spoken English", "Personality Development & Grooming", "Crack Job Interview Skills", "Financial Literacy & Planning"] }
+        ];
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const courseId = parseInt(urlParams.get('id'));
+        console.log("ID extracted from URL:", courseId);
+        console.log("Available Course IDs in data:", courseData.map(c => c.id));
+
+        const course = courseData.find(c => c.id === courseId);
+        console.log("Found course data:", course);
+
+        const container = document.getElementById('course-detail-container');
+
+        if (course) {
+            container.innerHTML = `
+                <div class="breadcrumb">
+                    <a href="courses.html"><i class="fas fa-arrow-left"></i> Back to all courses</a>
+                </div>
+                <h1>${course.title}</h1>
+                <span class="category"><i class="fas ${course.icon}"></i> ${course.type}</span>
+                <span class="duration"><i class="far fa-clock"></i> ${course.duration}</span>
+                <p class="desc">${course.desc}</p>
+                
+                <h3><i class="fas fa-list-ul" style="color:var(--accent);"></i> Course Syllabus</h3>
+                <ul class="syllabus-list">
+                    ${course.syllabus.map(s => `<li><i class="fas fa-check-circle"></i> ${s}</li>`).join('')}
+                </ul>
+
+                <a href="https://wa.me/919663427037?text=I%20am%20interested%20in%20the%20${encodeURIComponent(course.title)}%20course." target="_blank" class="wa-enroll">
+                    <i class="fab fa-whatsapp"></i> Enroll Now via WhatsApp
+                </a>
+            `;
+        } else {
+            container.innerHTML = `<p style="text-align:center; font-size:1.2rem;">Course not found. <a href="courses.html" style="color:var(--accent);">Go back</a></p>`;
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.animate-section').forEach(function(el) {
+                observer.observe(el);
+            });
+        });
+        console.log("--- DEBUG INFO END ---");
+    </script>
+</body>
+</html>

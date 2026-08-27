@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" sizes="180x180" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Sarvam | Prabhat & Sarvam Kuteeram</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-p: #0f172a; --accent: #0ea5e9; --gold: #facc15;
+            --bg-light: #f8fafc; --text-dark: #0f172a; --text-muted: #475569;
+            --radius: 12px; --shadow-hover: 0 10px 25px rgba(0,0,0,0.08);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            color: var(--text-dark); 
+            /* EDGE-TO-EDGE GRID */
+            background-color: #f4f7fa;
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px), radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+            line-height: 1.6; 
+            overflow-x: hidden; 
+        }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; border-radius: var(--radius); }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2; }
+        .section-padding { padding: 60px 0; position: relative; }
+
+        /* CUSTOM SCROLLBAR */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0284c7; }
+
+        /* BACKGROUND & SIDE DECORATIONS */
+        .colorful-bg {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f9faff 0%, #eef5ff 30%, #fff3f9 70%, #fffcf0 100%);
+            z-index: 1;
+        }
+        .side-deco {
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+            border-radius: 100px;
+            opacity: 0.2;
+            animation: float-side 14s ease-in-out infinite alternate;
+        }
+        .deco-left-large { width: 600px; height: 600px; background: var(--accent); left: -300px; top: 10%; transform: rotate(25deg); animation-delay: -2s; }
+        .deco-right-large { width: 500px; height: 700px; background: var(--gold); right: -250px; top: 20%; transform: rotate(-20deg); animation-delay: -5s; }
+        .deco-left-small { width: 400px; height: 400px; background: #db2777; left: -200px; bottom: 10%; transform: rotate(45deg); animation-delay: -8s; }
+        .deco-right-small { width: 450px; height: 450px; background: #7c3aed; right: -200px; top: 60%; transform: rotate(-30deg); animation-delay: -3s; }
+        @keyframes float-side {
+            0% { transform: translateY(0px) rotate(25deg) scale(1); }
+            100% { transform: translateY(40px) rotate(30deg) scale(1.05); }
+        }
+        .deco-right-large { animation-name: float-side-right; }
+        @keyframes float-side-right {
+            0% { transform: translateY(0px) rotate(-20deg) scale(1); }
+            100% { transform: translateY(40px) rotate(-25deg) scale(1.05); }
+        }
+        .deco-right-small { animation-name: float-side-right-small; }
+        @keyframes float-side-right-small {
+            0% { transform: translateY(0px) rotate(-30deg) scale(1); }
+            100% { transform: translateY(-30px) rotate(-35deg) scale(1.05); }
+        }
+
+        /* HEADER (Huge Floating Logos) */
+        header { background: white; padding: 12px 0; position: sticky; top: 0; z-index: 100; border-bottom: 2px solid var(--gold); }
+        .header-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .brand-collab { display: flex; align-items: center; gap: 15px; }
+        .brand-collab .line { width: 2px; height: 50px; background: #e2e8f0; }
+        .brand-p, .brand-s { display: flex; align-items: center; justify-content: center; }
+        /* LOGO SIZE INCREASED & FLOATING ANIMATION ADDED */
+        .brand-p img, .brand-s img { max-height: 100px; width: auto; border-radius: 4px; cursor: pointer; transition: var(--transition); animation: logo-float 4s ease-in-out infinite alternate; }
+        .brand-p img:hover, .brand-s img:hover { transform: scale(1.05) !important; opacity: 0.9; animation-play-state: paused; }
+        @keyframes logo-float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-6px); }
+        }
+        nav { display: flex; gap: 25px; align-items: center; flex-wrap: wrap; }
+        nav a { font-weight: 500; font-size: 0.95rem; color: var(--text-dark); transition: var(--transition); }
+        nav a:hover { color: var(--accent); }
+        nav a.active { color: var(--accent); }
+        .nav-btn { background: var(--gold); color: var(--primary-p); padding: 8px 20px; border-radius: 50px; font-weight: 700 !important; }
+
+        /* FOUNDER & CAMPUS */
+        .about-intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; background: white; padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow-hover); max-width: 1100px; margin: 40px auto; align-items: start; }
+        .founder-wrap { text-align: center; }
+        .founder-img-wrap { width: 300px; height: 300px; margin: 0 auto 15px; background: var(--bg-light); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; }
+        .founder-img-wrap img { width: 100%; height: 100%; object-fit: contain; }
+        .founder-wrap h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 5px; }
+        .founder-wrap p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+        .campus-wrap { text-align: left; width: 100%; }
+        .campus-img-wrap { width: 100%; height: 400px; margin-bottom: 15px; border-radius: var(--radius); overflow: hidden; }
+        .campus-img-wrap img { width: 100%; height: 100%; object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-radius: var(--radius); }
+        .campus-wrap h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 5px; }
+        .campus-wrap p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* VIDEO SECTION */
+        .video-section { padding: 40px 0; border-radius: var(--radius); margin: 40px 0; position: relative; }
+        .video-wrapper { max-width: 1000px; margin: 0 auto; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-hover); background: #000; position: relative; padding-bottom: 56.25%; height: 0; }
+        .video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+        /* DETAILS */
+        .about-detailed { background: white; border-radius: var(--radius); padding: 40px; box-shadow: var(--shadow-hover); max-width: 900px; margin: 0 auto; }
+        .about-detailed h2 { font-size: 2rem; font-weight: 800; margin-bottom: 20px; border-bottom: 2px solid var(--gold); padding-bottom: 10px; display: inline-block; }
+        .about-detailed p { color: var(--text-muted); margin-bottom: 15px; line-height: 1.8; }
+        .about-detailed ul { list-style: disc; padding-left: 20px; margin-bottom: 20px; color: var(--text-muted); }
+        .whatsapp-cta { display: inline-flex; align-items: center; gap: 10px; background: #25d366; color: white; padding: 12px 24px; border-radius: 50px; font-weight: 600; transition: var(--transition); margin-top: 20px; }
+        .whatsapp-cta:hover { transform: scale(1.05); }
+
+        /* CERTIFICATE SLIDER */
+        .cert-section { padding: 40px 0; background: white; border-radius: var(--radius); box-shadow: var(--shadow-hover); max-width: 900px; margin: 40px auto; }
+        .cert-section h2 { text-align: center; font-weight: 800; padding-top: 20px; font-size: 2rem; }
+        .cert-section h2 span { color: var(--gold); }
+        .slider-wrapper { position: relative; max-width: 800px; margin: 20px auto; overflow: hidden; border-radius: var(--radius); background: #f1f5f9; }
+        .slider-track { display: flex; transition: transform 0.4s ease-in-out; }
+        .slide-item { min-width: 100%; display: flex; justify-content: center; align-items: center; padding: 20px; }
+        .slide-item img { max-height: 500px; width: 100%; object-fit: contain; border-radius: var(--radius); background: white; }
+        .slider-controls { display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 20px; padding-bottom: 20px; }
+        .slider-btn { background: var(--gold); color: #0f172a; border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; transition: var(--transition); display: flex; align-items: center; justify-content: center;}
+        .slider-btn:hover { background: #eab308; transform: scale(1.1); }
+        .slider-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none;}
+        .slider-dots { display: flex; gap: 8px; }
+        .slider-dot { width: 12px; height: 12px; border-radius: 50%; background: #cbd5e1; cursor: pointer; transition: var(--transition); }
+        .slider-dot.active { background: var(--gold); transform: scale(1.2); }
+
+        /* SCROLL ANIMATIONS */
+        .animate-section { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .animate-section.is-visible { opacity: 1; transform: translateY(0); }
+        .animate-item { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .is-visible .animate-item { opacity: 1; transform: translateY(0); }
+
+        /* MASSIVE PULSATING ANIMATED FOOTER */
+        footer { background: #0f172a; color: white; padding: 60px 0 30px; border-top: 4px solid var(--gold); margin-top: 0px; position: relative; overflow: hidden; }
+        .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; max-width: 1000px; margin: 0 auto 40px; text-align: left; position: relative; z-index: 2; }
+        .footer-col h5 { font-size: 1.6rem; margin-bottom: 20px; color: var(--gold); animation: pulse-gold 3s infinite alternate; }
+        @keyframes pulse-gold { 0% { text-shadow: 0 0 0px transparent; } 100% { text-shadow: 0 0 15px rgba(250, 204, 21, 0.4); } }
+        .footer-col p { color: #94a3b8; font-size: 1.2rem; line-height: 2.2; margin-bottom: 10px; }
+        .footer-col i { margin-right: 12px; color: var(--accent); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; text-align: center; font-size: 1.1rem; color: #94a3b8; position: relative; z-index: 2; }
+
+        @media (max-width: 900px) {
+            .header-content { flex-direction: column; align-items: center; }
+            nav { justify-content: center; gap: 15px; }
+            .about-intro-grid { grid-template-columns: 1fr; }
+            .founder-img-wrap { width: 100%; max-width: 300px; margin: 0 auto 15px; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .brand-collab .line { height: 40px; }
+            .side-deco { display: none; }
+            .brand-p img, .brand-s img { max-height: 70px; } /* Smaller on mobile to fit */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="brand-collab">
+                <div class="brand-p">
+                    <a href="index.html"><img src="prbhath-logo.png" alt="Prabhat & Gnanadhathri" onerror="this.style.display='none'"></a>
+                </div>
+                <div class="line"></div>
+                <div class="brand-s">
+                    <a href="index.html"><img src="sarvam-logo.jpeg" alt="Sarvam Kuteeram" class="sarvam-logo" onerror="this.style.display='none'"></a>
+                </div>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="prabhat.html">Prabhat</a>
+                <a href="sarvam.html" class="active">Sarvam</a>
+                <a href="courses.html">Courses</a>
+                <a href="courses.html" class="nav-btn">Enquire Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container section-padding animate-section">
+        <div class="side-deco deco-left-large"></div>
+        <div class="side-deco deco-right-large"></div>
+        <div class="side-deco deco-left-small"></div>
+        <div class="side-deco deco-right-small"></div>
+        
+        <div class="about-intro-grid animate-item">
+            <div class="founder-wrap">
+                <div class="founder-img-wrap">
+                    <img src="founder-sarvam.jpeg" alt="Founder of Sarvam Kuteeram" onerror="this.src='https://via.placeholder.com/300x300?text=Founder'">
+                </div>
+                <h2>Meet Our Founder</h2>
+                <p>Committed to bringing the ancient Gurukul tradition into the modern era, our founder designed Sarvam Kuteeram to nurture young minds holistically.</p>
+            </div>
+            <div class="campus-wrap">
+                <div class="campus-img-wrap">
+                    <img src="sarvam-campus.png" alt="Sarvam Kuteeram Campus" onerror="this.src='https://via.placeholder.com/800x400?text=Sarvam+Campus'">
+                </div>
+                <h3>Our Gurukul Campus</h3>
+                <p>A nurturing space designed for holistic learning, yoga, traditional arts, and modern robotics. Where ancient wisdom meets the future of AI and ML.</p>
+            </div>
+        </div>
+
+        <section class="video-section colorful-bg animate-item">
+            <div class="container">
+                <h2 style="text-align: center; font-weight: 800; margin-bottom: 30px;">Institute <span style="color: var(--gold);">Overview</span></h2>
+                <div class="video-wrapper">
+                    <video controls poster="sarvam-logo.jpeg"><source src="overeww.mp4" type="video/mp4">Your browser does not support the video tag.</video>
+                </div>
+            </div>
+        </section>
+
+        <div class="about-detailed animate-item">
+            <h2>About Sarvam Kuteeram</h2>
+            <p>Located in Yelahanka, Bangalore, Sarvam Kuteeram is a <strong>Gurukul Learning Space</strong>. We emphasize an ancient Indian educational tradition, holistic learning, and character development. We strive to preserve and adapt this traditional system to empower young minds in the modern world.</p>
+            <p>We provide a nurturing environment where students not only acquire academic knowledge but also learn important life skills, ethics, and values. We deeply believe in the philosophy of <em>"Guru-Shishya Parampara"</em>, integrating Vedic learning with the future of AI and ML.</p>
+            <ul>
+                <li><strong>Holistic Curriculum:</strong> Integrating Vedic studies, yoga, meditation, traditional arts, sciences, math, and robotics.</li>
+                <li><strong>Homeschooling:</strong> Tailored educational programs with academic support and subscription-based extracurricular activities.</li>
+                <li><strong>Workshops:</strong> Emotional Intelligence, storytelling, Electronics, Art,  and Spoken Kannada.</li>
+                <li><strong>Vocational & After-School:</strong> Tailoring, Theatre, Carpentry, Vedic Maths, Robotics, Abacus, Memory Techniques, and Olympiad preparation.</li>
+            </ul>
+            <a href="https://wa.me/918892036888?text=I%20am%20interested%20in%20Sarvam%20Kuteeram%27s%20programs." target="_blank" class="whatsapp-cta">
+                <i class="fab fa-whatsapp"></i> Direct WhatsApp Enquiry
+            </a>
+        </div>
+
+        <section class="cert-section animate-item">
+            <h2>Official <span>Recognitions</span></h2>
+            <div class="slider-wrapper">
+                <div class="slider-track" id="doc-track"></div>
+            </div>
+            <div class="slider-controls">
+                <button class="slider-btn" id="prev-slide"><i class="fas fa-chevron-left"></i></button>
+                <div class="slider-dots" id="doc-dots"></div>
+                <button class="slider-btn" id="next-slide"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="side-deco deco-left-large" style="background: #7c3aed; opacity:0.1; left: -400px; top: 50%;"></div>
+        <div class="side-deco deco-right-large" style="background: #db2777; opacity:0.1; right: -400px; top: 20%;"></div>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h5>Prabhat & Gnanadhathri</h5>
+                    <p><i class="fas fa-map-marker-alt"></i> #72, 'Samrudhi', 1st Floor, 7th Main, Attur layout, Yelahanka, Bangalore - 560064.</p>
+                    <p><i class="fas fa-phone-alt"></i> <a href="tel:9663427037" style="color: var(--accent);">9663427037</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:prabhatinstitute26@gmail.com" style="color: var(--accent);">prabhatinstitute26@gmail.com</a></p>
+                    <p><i class="fas fa-clock"></i> 9:00 AM - 8:00 PM</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Sarvam Kuteeram</h5>
+                    <p><i class="fas fa-map-marker-alt"></i> No.228/A 407SFS colony, Yelahanka new town, Bangalore 560 064, Karnataka, India.</p>
+                    <p><i class="fas fa-phone-alt"></i> <a href="tel:8892036888" style="color: var(--gold);">8892036888</a></p>
+                    <p><i class="fas fa-envelope"></i> sarvam.kuteeram3379@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> 8:00 AM - 8:00 PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Prabhat & Gnanadhathri | Sarvam Kuteeram Collaboration.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const docImages = ['dos-4.png', 'dos-3.jpeg', 'dos-2.jpeg', 'dos-1.jpeg'];
+        let currentSlide = 0;
+        const track = document.getElementById('doc-track');
+        const dotsContainer = document.getElementById('doc-dots');
+
+        function renderCarousel() {
+            track.innerHTML = ''; dotsContainer.innerHTML = '';
+            docImages.forEach((img, index) => {
+                const slide = document.createElement('div'); slide.className = 'slide-item';
+                slide.innerHTML = `<img src="${img}" alt="Doc ${index + 1}" onerror="this.src='https://via.placeholder.com/600x400?text=Add+${img}'">`;
+                track.appendChild(slide);
+                const dot = document.createElement('div'); dot.className = 'slider-dot' + (index === 0 ? ' active' : '');
+                dot.onclick = () => goToSlide(index); dotsContainer.appendChild(dot);
+            }); updateCarousel();
+        }
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            document.querySelectorAll('.slider-dot').forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
+            document.getElementById('prev-slide').disabled = currentSlide === 0;
+            document.getElementById('next-slide').disabled = currentSlide === docImages.length - 1;
+        }
+        function goToSlide(index) { currentSlide = index; updateCarousel(); }
+        document.getElementById('prev-slide').onclick = () => { if(currentSlide > 0) { currentSlide--; updateCarousel(); } };
+        document.getElementById('next-slide').onclick = () => { if(currentSlide < docImages.length - 1) { currentSlide++; updateCarousel(); } };
+        renderCarousel();
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.animate-section').forEach(function(el) {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
