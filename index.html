@@ -146,16 +146,8 @@
         .animate-section { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
         .animate-section.is-visible { opacity: 1; transform: translateY(0); }
         .animate-item { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
-        .is-visible .animate-item:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
-        .is-visible .animate-item:nth-child(2) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
-        .is-visible .animate-item:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
-        .is-visible .animate-item:nth-child(4) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
-        .is-visible .animate-item:nth-child(5) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
-        .is-visible .animate-item:nth-child(6) { transition-delay: 0.6s; opacity: 1; transform: translateY(0); }
-        .is-visible .animate-item:nth-child(7) { transition-delay: 0.7s; opacity: 1; transform: translateY(0); }
-        .is-visible .animate-item:nth-child(8) { transition-delay: 0.8s; opacity: 1; transform: translateY(0); }
-        .is-visible .animate-item:nth-child(9) { transition-delay: 0.9s; opacity: 1; transform: translateY(0); }
-
+                .is-visible .animate-item { opacity: 1; transform: translateY(0); }
+        .is-visible .animate-item:nth-child(odd) { transition-delay: 0.1s; }
         /* MASSIVE PULSATING ANIMATED FOOTER */
         footer { background: #0f172a; color: white; padding: 60px 0 30px; border-top: 4px solid var(--gold); margin-top: 0px; position: relative; overflow: hidden; }
         .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; max-width: 1000px; margin: 0 auto 40px; text-align: left; position: relative; z-index: 2; }
